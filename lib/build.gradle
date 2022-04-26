@@ -1,0 +1,22 @@
+plugins {
+    id 'java-library'
+    id 'io.gatling.gradle' version '3.7.6.2'
+}
+
+repositories {
+    mavenCentral()
+}
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+dependencies {
+}
+
+gatling {
+    logLevel = 'INFO'
+    logHttp = 'FAILURES'
+}
+
