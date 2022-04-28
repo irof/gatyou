@@ -8,6 +8,7 @@ repositories {
 
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.7.2'
+    id "org.sonarqube" version "3.3"
 }
 
 tasks.named('test') {
@@ -33,3 +34,11 @@ jar {
 // for heroku deploy
 task stage(dependsOn: ['build', 'clean'])
 build.mustRunAfter clean
+
+sonarqube {
+  properties {
+    property "sonar.projectKey", "irof_gatyou"
+    property "sonar.organization", "irof"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
+}
